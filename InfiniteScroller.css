@@ -1,0 +1,36 @@
+.scroller{
+    height: 20vh;
+    width: 100vw;
+    position: relative;
+}
+.scroller-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    margin-top: 30px;
+  }
+  
+  .scroller {
+    display: flex;
+    width: max-content;
+    animation: scroll 18s linear infinite;
+    align-items: center;
+ gap: 30px;
+
+  }
+  
+  .scroller img {
+   height: 35px;
+    margin-right: 10px;
+    transition: all linear 0.2s;
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
