@@ -5,7 +5,7 @@ function loco() {
 
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
-    smooth: true
+    smooth: true,
   });
   // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
   locoScroll.on("scroll", ScrollTrigger.update);
@@ -13,24 +13,29 @@ function loco() {
   // tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
   ScrollTrigger.scrollerProxy("#main", {
     scrollTop(value) {
-      return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
     }, // we don't have to define a scrollLeft because we're only scrolling vertically.
     getBoundingClientRect() {
-      return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
     },
     // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-    pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
+    pinType: document.querySelector("#main").style.transform
+      ? "transform"
+      : "fixed",
   });
 
-
-
-
-  // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
+  // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
   ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
   // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
   ScrollTrigger.refresh();
-
 }
 loco();
 
@@ -39,7 +44,6 @@ const context = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
@@ -226,7 +230,6 @@ function scaleImage(img, ctx) {
   );
 }
 ScrollTrigger.create({
-
   trigger: "canvas",
   pin: true,
   // markers:true,
@@ -238,156 +241,140 @@ ScrollTrigger.create({
 
 // Personal scrolling
 
-
-
-
-
-let crsr = document.querySelector(".cursor")
+let crsr = document.querySelector(".cursor");
 document.addEventListener("mousemove", function (dets) {
-  crsr.style.left = dets.x + 50 + "px"
-  crsr.style.top = dets.y + 0 + "px"
-})
+  crsr.style.left = dets.x + 50 + "px";
+  crsr.style.top = dets.y + 0 + "px";
+});
 
-var h4all = document.querySelectorAll(".nav a")
+var h4all = document.querySelectorAll(".nav a");
 h4all.forEach(function (elem) {
   elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 1.5
-    crsr.style.border = "4px solid rgb(182, 155, 155)"
-    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)"
-
-
-  })
+    crsr.style.scale = 1.5;
+    crsr.style.border = "4px solid rgb(182, 155, 155)";
+    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)";
+  });
   elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1
-    crsr.style.border = "4px solid #737472"
-    crsr.style.boxShadow = "none"
-  })
-})
-var h4all = document.querySelectorAll(".scroller img")
+    crsr.style.scale = 1;
+    crsr.style.border = "4px solid #737472";
+    crsr.style.boxShadow = "none";
+  });
+});
+var h4all = document.querySelectorAll(".scroller img");
 h4all.forEach(function (elem) {
   elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 1.5
-    crsr.style.border = "4px solid rgb(182, 155, 155)"
-    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)"
-
-
-  })
+    crsr.style.scale = 1.5;
+    crsr.style.border = "4px solid rgb(182, 155, 155)";
+    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)";
+  });
   elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1
-    crsr.style.border = "4px solid #737472"
-    crsr.style.boxShadow = "none"
-  })
-})
-var h4all = document.querySelectorAll(".animate")
+    crsr.style.scale = 1;
+    crsr.style.border = "4px solid #737472";
+    crsr.style.boxShadow = "none";
+  });
+});
+var h4all = document.querySelectorAll(".animate");
 h4all.forEach(function (elem) {
   elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 2
-    crsr.style.border = "4px solid rgb(182, 155, 155)"
-    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)"
-    crsr.style.backgroundImage = "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_9.png)"
-    crsr.style.backgroundSize = "cover"
- 
-
-  })
+    crsr.style.scale = 2;
+    crsr.style.border = "4px solid rgb(182, 155, 155)";
+    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)";
+    crsr.style.backgroundImage =
+      "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_9.png)";
+    crsr.style.backgroundSize = "cover";
+  });
   elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1
-    crsr.style.border = "4px solid #737472"
-    crsr.style.boxShadow = "none"
-    crsr.style.backgroundImage = "none"
-  })
-})
-var h4all = document.querySelectorAll(".second")
+    crsr.style.scale = 1;
+    crsr.style.border = "4px solid #737472";
+    crsr.style.boxShadow = "none";
+    crsr.style.backgroundImage = "none";
+  });
+});
+var h4all = document.querySelectorAll(".second");
 h4all.forEach(function (elem) {
   elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 2
-    crsr.style.border = "4px solid rgb(182, 155, 155)"
-    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)"
-    crsr.style.backgroundImage = "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_8.png)"
-    crsr.style.backgroundSize = "cover"
- 
-
-  })
+    crsr.style.scale = 2;
+    crsr.style.border = "4px solid rgb(182, 155, 155)";
+    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)";
+    crsr.style.backgroundImage =
+      "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_8.png)";
+    crsr.style.backgroundSize = "cover";
+  });
   elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1
-    crsr.style.border = "4px solid #737472"
-    crsr.style.boxShadow = "none"
-    crsr.style.backgroundImage = "none"
-  })
-})
-var h4all = document.querySelectorAll(".third")
+    crsr.style.scale = 1;
+    crsr.style.border = "4px solid #737472";
+    crsr.style.boxShadow = "none";
+    crsr.style.backgroundImage = "none";
+  });
+});
+var h4all = document.querySelectorAll(".third");
 h4all.forEach(function (elem) {
   elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 2
-    crsr.style.border = "4px solid rgb(182, 155, 155)"
-    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)"
-    crsr.style.backgroundImage = "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_7.png)"
-    crsr.style.backgroundSize = "cover"
- 
-
-  })
+    crsr.style.scale = 2;
+    crsr.style.border = "4px solid rgb(182, 155, 155)";
+    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)";
+    crsr.style.backgroundImage =
+      "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_7.png)";
+    crsr.style.backgroundSize = "cover";
+  });
   elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1
-    crsr.style.border = "4px solid #737472"
-    crsr.style.boxShadow = "none"
-    crsr.style.backgroundImage = "none"
-  })
-})
-var h4all = document.querySelectorAll(".fourth")
+    crsr.style.scale = 1;
+    crsr.style.border = "4px solid #737472";
+    crsr.style.boxShadow = "none";
+    crsr.style.backgroundImage = "none";
+  });
+});
+var h4all = document.querySelectorAll(".fourth");
 h4all.forEach(function (elem) {
   elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 2
-    crsr.style.border = "4px solid rgb(182, 155, 155)"
-    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)"
-    crsr.style.backgroundImage = "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_6.png)"
-    crsr.style.backgroundSize = "cover"
- 
-
-  })
+    crsr.style.scale = 2;
+    crsr.style.border = "4px solid rgb(182, 155, 155)";
+    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)";
+    crsr.style.backgroundImage =
+      "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_6.png)";
+    crsr.style.backgroundSize = "cover";
+  });
   elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1
-    crsr.style.border = "4px solid #737472"
-    crsr.style.boxShadow = "none"
-    crsr.style.backgroundImage = "none"
-  })
-})
-var h4all = document.querySelectorAll(".fifth")
+    crsr.style.scale = 1;
+    crsr.style.border = "4px solid #737472";
+    crsr.style.boxShadow = "none";
+    crsr.style.backgroundImage = "none";
+  });
+});
+var h4all = document.querySelectorAll(".fifth");
 h4all.forEach(function (elem) {
   elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 2
-    crsr.style.border = "4px solid rgb(182, 155, 155)"
-    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)"
-    crsr.style.backgroundImage = "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_4.png)"
-    crsr.style.backgroundSize = "cover"
- 
-
-  })
+    crsr.style.scale = 2;
+    crsr.style.border = "4px solid rgb(182, 155, 155)";
+    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)";
+    crsr.style.backgroundImage =
+      "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_4.png)";
+    crsr.style.backgroundSize = "cover";
+  });
   elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1
-    crsr.style.border = "4px solid #737472"
-    crsr.style.boxShadow = "none"
-    crsr.style.backgroundImage = "none"
-  })
-})
-var h4all = document.querySelectorAll(".sixth")
+    crsr.style.scale = 1;
+    crsr.style.border = "4px solid #737472";
+    crsr.style.boxShadow = "none";
+    crsr.style.backgroundImage = "none";
+  });
+});
+var h4all = document.querySelectorAll(".sixth");
 h4all.forEach(function (elem) {
   elem.addEventListener("mouseenter", function () {
-    crsr.style.scale = 2
-    crsr.style.border = "4px solid rgb(182, 155, 155)"
-    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)"
-    crsr.style.backgroundImage = "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_5.png)"
-    crsr.style.backgroundSize = "cover"
- 
-
-  })
+    crsr.style.scale = 2;
+    crsr.style.border = "4px solid rgb(182, 155, 155)";
+    crsr.style.boxShadow = "10px 10px 60px rgb(3, 238, 255)";
+    crsr.style.backgroundImage =
+      "url(https://zelt.app/wp-content/themes/zelt/assets/lottie/home/overview/people/images/img_5.png)";
+    crsr.style.backgroundSize = "cover";
+  });
   elem.addEventListener("mouseleave", function () {
-    crsr.style.scale = 1
-    crsr.style.border = "4px solid #737472"
-    crsr.style.boxShadow = "none"
-    crsr.style.backgroundImage = "none"
-  })
-})
-
-
+    crsr.style.scale = 1;
+    crsr.style.border = "4px solid #737472";
+    crsr.style.boxShadow = "none";
+    crsr.style.backgroundImage = "none";
+  });
+});
 
 // gsap aniamtions
 
@@ -401,54 +388,45 @@ gsap.from(".div-img-1", {
     scroller: `#main`,
     start: `top 80%`,
     end: `top 70%`,
+  },
+});
+gsap.from(".div-img-2", {
+  scale: 0,
+  opacity: 0,
 
-  }
-})
-gsap.from(".div-img-2",
-  {
-    scale: 0,
-    opacity: 0,
-
-    duration: 1.5,
-    ease: "elastic.out(3, 0.5)",
-    scrollTrigger: {
-      trigger: `.div-img-2`,
-      scroller: `#main`,
-      start: `top 70%`,
-      end: `top 70%`,
-
-    }
-  }
-);
+  duration: 1.5,
+  ease: "elastic.out(3, 0.5)",
+  scrollTrigger: {
+    trigger: `.div-img-2`,
+    scroller: `#main`,
+    start: `top 70%`,
+    end: `top 70%`,
+  },
+});
 
 gsap.from("#page1 h1", {
   opacity: 0,
-  stagger:0.1,
+  stagger: 0.1,
   duration: 1,
-  delay:0.3,
+  delay: 0.3,
   y: "70%",
-  
-
-})
+});
 
 gsap.from("#page1 p", {
   rotate: 360,
   duration: 2,
   opacity: 0,
   z: "-500px",
-  scale:0,
-
+  scale: 0,
 
   ease: "power2.out",
-})
-
+});
 
 gsap.from(".v1-d1", {
-
-  x: "200%",           
+  x: "200%",
   duration: 1,
-  delay:1,
-  opacity:0,      
+  delay: 1,
+  opacity: 0,
   ease: "ease-in-out",
   stagger: 0.1,
   scrollTrigger: {
@@ -456,10 +434,8 @@ gsap.from(".v1-d1", {
     scroller: `#main`,
     start: `top 70%`,
     end: `top 70%`,
-
-  }
-
-})
+  },
+});
 gsap.from(".v2-d1", {
   stagger: 0.1,
   y: 100,
@@ -471,5 +447,5 @@ gsap.from(".v2-d1", {
     scroller: `#main`,
     start: `top 75%`,
     end: `top 70%`,
-  }
-})
+  },
+});
