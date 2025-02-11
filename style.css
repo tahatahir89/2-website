@@ -1,0 +1,648 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:"Montserrat";
+    box-sizing: border-box;
+    color: #fff;
+}
+*::selection {
+    background-color: #Fff; /* Selection background color */
+    color: #a8eb0b;           /* Selection text color */
+  }
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.cursor{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+    background-color: #b4e922;
+    transition: all linear 0.3s;
+}
+.cursor-blur{
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    position: fixed;
+    background-color: #b4e92275;
+    filter: blur(100px);
+    z-index: 9;
+    transition: all linear 0.5s;
+}
+nav{
+    height: 130px;
+    width: 100%;
+    gap: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding:0px 10px 0px 10px  ;
+    text-transform: uppercase;
+    position: fixed;
+    z-index: 99;
+    
+}
+
+nav h4{
+    font-weight: 500;
+    font-size: 14px;
+    transition: all linear 0.2s;
+}
+nav h4:hover{
+color: #000;
+font-weight: 700;
+}
+nav h4::selection {
+    background-color: #Fff; /* Selection background color */
+    color: #a8eb0b;           /* Selection text color */
+  }
+
+nav img{
+height:65px;
+margin-left: 90px;
+transition: all ease 0.3s;
+cursor: pointer;
+}
+nav>img:hover{
+   scale: 1.4;
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+main{
+
+    position: relative;
+    background-color: rgba(0, 0, 0.7, 0.7);
+}
+.page1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+.page1 h1{
+    font-size: 90px;
+    font-weight: 800;
+    position: relative;
+}
+.page1 h1::before{
+    content:"EAT. DRINK. PLAY.";
+    position: absolute;
+    color: #89ff3f;
+    bottom: -5px;
+    right: -5px;
+    -webkit-text-stroke: 2px #ccff3f ;
+    z-index: -1;
+}
+.page1 h3{
+    margin-top: 5px;
+    font-size:20px ;
+    text-transform: uppercase;
+    font-weight: 900;
+
+}
+.page1 p{
+   width: 50%;
+   margin-top: 8px;
+   text-align: center;
+}
+/* fOR PAGE NO 2 */
+.page2{
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+.scroller{
+overflow-y: hidden;
+overflow-x: auto;
+white-space: nowrap;
+position: relative;
+z-index: 10;
+
+}
+.scroller h4{
+font-size: 80px;
+display: inline-block;
+font-weight: 800;
+margin-right: 20px;
+text-transform: uppercase;
+color: transparent;
+-webkit-text-stroke: 1px #ccff3f;
+font-family: "poppins";
+transition: all linear 0.5s;
+
+}
+.scroller::-webkit-scrollbar{
+    display: none;
+}
+.scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-duration:18s ;
+animation-iteration-count: infinite;
+animation-name:scroll ;
+animation-timing-function: linear;
+}
+.scroller-in h4:hover{
+    color: #ccff3f85;
+}
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+/* About us div */
+.about-us{
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+margin-top: 90px;
+height: 40vh;
+width: 100%;
+position: relative;
+z-index: 10;
+
+}
+.about-us-info{
+    width: 50%;
+    text-align: center;
+
+}
+.about-us-info h3{
+    font-size: 35px;
+    margin: 0px 0px 20px 0px ;
+    font-weight: 850;
+}
+.about-us-info h3::selection {
+    background-color: #Fff; /* Selection background color */
+    color: #9dd41d;           /* Selection text color */
+  }
+.about-us-info p{
+    font-size: 17px;
+    margin: 0px 0px 20px 0px ;
+    line-height: 35px;
+}
+.about-us-info p::selection {
+    background-color: #Fff; /* Selection background color */
+    color: #a8eb0b;           /* Selection text color */
+  }
+.about-us img{
+    height: 150px;
+    width: 200px;
+    border-radius: 15px;
+    background-size: cover;
+
+}
+/* styling for card section */
+.page3{
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+    top: -100px;
+}
+.card-sec{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    top: -200px;
+}
+.card-1{
+    background-image: url("card1.avif");
+    background-size: cover;
+    height: 90%;
+    width: 25%;
+    border-radius: 20px;
+    background-position: center;
+
+}
+.card-2{
+    background-image: url("card2.webp");
+    background-size: cover;
+    height: 90%;
+    width: 25%;
+    border-radius: 20px;
+    background-position: center;
+
+}
+.card-3{
+    background-image: url("card3.avif");
+    background-size: cover;
+    height: 90%;
+    width: 25%;
+    border-radius: 20px;
+    background-position: center;
+}
+.page3 img{
+    z-index: -1;
+   height: 100%;
+   width: 100%;
+    margin: -50px -50px 20px 10px ;
+    
+}
+
+.img-page3{
+    margin: -100px -50px 20px 10px ;
+    height: 180px;
+    width: 180px;
+   
+}
+.img-page-3 img{
+    height: 180px;
+    width: 180px;
+    position: absolute;
+    top: -60%;
+}
+.img-page-3 {
+    height: 180px;
+    width: 180px;
+    margin: -50px -50px 20px 10px ;
+    position: relative;
+}
+
+.h1-card-1 h1{
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #000;
+    font-size: 25px;
+    
+}
+.h1-card-1 P{
+    margin-bottom: 20px;
+    color: #0000009d;
+    line-height: 25px;
+    text-align: left;
+}
+.h1-card-1{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: #a8eb0b;
+    padding: 50px 0px 100px 30px;
+    opacity: 0;
+    transition: all ease 0.6s;
+
+}
+#card .h1-card-1:hover{
+    opacity: 1;
+    
+}
+#card{
+    transition: all ease 0.6s;
+    overflow: hidden;
+}
+.arrow{
+    height: 80px;
+    width:80px;
+    border: 2px solid white;
+   transition: all linear 0.6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 15px;
+    margin: -30px -10px 0px 0px;
+    cursor: pointer;
+}
+.arrow:hover{
+    background-color: white;
+    border: 2px solid black;
+}
+.arrow-outer{
+    height: 85px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: -50px;
+}
+
+/* page4 styling */
+
+.page4{
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+ margin-top: -80px;
+}
+.green-sec{
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(170deg, #ccff3f, #30eb0b, #ccff3f , #ccff3f );
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.green-sec h3{
+    font-size: 22px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 900;
+    color: #000;
+}
+.green-sec img{
+    height: 100%;
+    width: 12%;
+    object-fit: cover;
+}
+.hover-img{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20px;
+    position: relative;
+}
+.hover-img>p{
+    font-size: 20px;
+    line-height: 30px;
+    width: 50%;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: center;
+}
+.hover-img img{
+    height: 50px;
+    width:50px;
+    position: absolute;
+}
+ .hover-img #img-1{
+    top: 15%;
+    left: 15%;
+}
+ .hover-img #img-2{
+    bottom: 15%;
+    right: 15%;
+}
+/* styling for page 5 */
+.page5{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    position: relative;
+    margin-top: -100px;
+    margin-bottom: 30px;
+}
+.page5>h1{
+    position: absolute;
+    top: -27%;
+    font-family: "poppins";
+    font-weight: 1000;
+    -webkit-text-stroke: 1px #ccff3f;
+    color: #000;
+    font-size: 70px;
+    transition: all linear 0.3s;
+}
+.elem{
+    height: 80%;
+    width: 26%;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all ease 0.8s;
+}
+.elem img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    scale: 1.1;
+    transition: all ease 0.6s;
+}
+.elem:hover img{
+    scale:1;
+}
+.elem h2{
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 850;
+    color: #000;
+    position: absolute;
+    background: linear-gradient(170deg, #ccff3f, #30eb0b, #ccff3f , #ccff3f );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.8s;
+    z-index: 10;
+}
+.elem:hover h2{
+    color: #fff;
+    background:transparent;
+}
+body::-webkit-scrollbar{
+    width: 13px;
+    background-color:rgba(0, 0, 0, 0.878) ;
+}
+body::-webkit-scrollbar-thumb{
+    width: 13px;
+    border-radius: 10px;
+    background: linear-gradient(to top, #ccff3f, #30eb0b, #ccff3f , #ccff3f );
+    height: 40px;
+}
+/* styling for page 6 */
+.page6{
+height:70vh;
+width: 100%;
+position: relative;
+z-index: 10;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 150px;
+}
+.text-page-6{
+    height: 80%;
+    width: 45%;
+    margin-top: 15px;
+}
+.text-page-6 h1{
+    font-size: 35px;
+    font-weight: 900;
+    text-align: left;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.text-page-6 p{
+    font-size: 17px;
+    text-align: left;
+    margin-top: 20px;
+    line-height: 30px;
+}
+/* styling for button */
+.text-page-6 .btn{
+ height: 50px;
+ width: 160px;
+ border-radius: 30px;
+ color: #b4e922;
+ background-color: #000;
+ border: 1.5px solid #ccff3f;
+ font-weight: 700;
+ margin-top: 50px;
+ position: relative;
+ display: inline-block;
+ cursor: pointer;
+ overflow: hidden;
+ transition: color 0.3s ease;
+
+}
+.btn:hover span{
+    color: #000;
+}
+  .btn::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(270deg, #ccff3f, #30eb0b, #ccff3f , #ccff3f );
+    display: flex;
+    z-index: 0;
+    transition: height 0.4s ease-in-out;
+    border-radius: 30px;
+  }
+
+  .btn:hover::before {
+    height: 100%;
+  }
+  .btn span {
+    position: relative;
+    z-index: 1;
+    transition: all linear 0.4s;
+  }
+  /* styling for footer */
+  footer{
+    height: 50vh;
+    width: 100%;
+    z-index: 10;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(to right bottom, #00ff29, #8ff31f,#36a02e );
+
+  }
+  .f1{
+    height: 70%;
+    width: 25%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+padding-top: 30px;
+  }
+  .f1 img{
+    height:69px;
+    margin-left: 65px;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    scale: 2;
+top: 20px;
+z-index: 10;
+margin-top: 20px;
+margin-left: 100px;
+    }
+    .f1>img:hover{
+       scale: 1.4;
+    }
+footer img{
+    z-index: -1;
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    left: -0.1%;
+    object-fit: cover;
+} 
+.f1 h2{
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 880;
+   line-height:35px ;
+   transition: all linear 0.3s;
+   cursor: pointer;
+   font-size: 22px;
+
+}
+.f1 h2:hover{
+    color: white;
+}
+.f1 p{
+    font-size: 15px;
+    color: #000;
+    font-weight: 550;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+#span-No-f1{
+    color: #000;
+    transition: all linear 0.3s;
+    cursor: pointer;
+}
+#span-No-f1:hover{
+    color: #fff;
+}
+.f1 h3{
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 880;
+   line-height:35px ;
+   transition: all linear 0.3s;
+   cursor: pointer;
+}
+.f1 h3:hover{
+    color: #fff;
+}
+.footer-info{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+   gap: 200px;
+}
+.footer-info p{
+    font-size: 12px;
+    color: #000;
+    font-weight: 500;
+}
+.footer-info span{
+    font-size: 12px;
+    color: #000;
+    font-weight: 500;
+    margin-right: 30px;
+    font-weight: 700;
+    transition: all linear 0.3s;
+    cursor: pointer;
+}
+.footer-info span:hover{
+    color:#fff ;
+}
